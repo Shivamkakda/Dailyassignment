@@ -40,7 +40,7 @@
             font-weight: bold;
 
         }
-        #data{
+        #Mdata{
             font-size: 24px;
             font-weight: bold;
             text-align: left;
@@ -52,12 +52,12 @@
 <body><div class="box">
     <input type="text" id="moviename" placeholder="Enter Movie Name"/>
     <button onclick="getMovie()">Get movie</button>
-    <ul id="data"></ul>
+    <div id="Mdata"></div>
     </div>
 </body>
 <script>
 
-    let container = document.getElementById("data")
+    let container = document.getElementById("Mdata")
 
    async function getMovie(){
        let film = document.getElementById("moviename").value;
@@ -65,10 +65,16 @@
     let res = await fetch(`http://www.omdbapi.com/?t=${film}&apikey=4acb4bb6`);
 
     let data = await res.json();
-    console.log("data:", data)
-    showMovie(data)
+    console.log(data)
+    if(data.Title === undefined){
+        container.innerHTML = "No Match Found"
+        
+    }else{
+        showMovie(data)
+    }
     
    };
+   
 
    function showMovie(movie){
        container.innerHTML = null;
