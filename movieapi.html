@@ -5,11 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .box{
+            width: 40%;
+            background-color: rgb(238, 229, 229);
+            margin: 5%;
+            margin-left: 30%;
+
+        }
+        input{
+            width: 200px;
+            height: 60px;
+            border: 2px solid black;
+            border-radius: 2%;
+            padding: 5px;
+            margin: 10px;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button{
+            width: 150px;
+            height: 60px;
+            border: 2px solid black;
+            border-radius: 2%;
+            padding: 5px;
+            margin: 10px;
+            background-color: cadetblue;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        #data{
+            font-size: 24px;
+            font-weight: bold;
+            text-align: left;
+            color: maroon;
+        }
+
+    </style>
 </head>
-<body>
-    <input type="text" id="moviename" placeholder="Enter City Name"/>
+<body><div class="box">
+    <input type="text" id="moviename" placeholder="Enter Movie Name"/>
     <button onclick="getMovie()">Get movie</button>
-    <div id="data"></div>
+    <ul id="data"></ul>
+    </div>
 </body>
 <script>
 
@@ -30,12 +74,24 @@
        container.innerHTML = null;
 
     let Title = document.createElement("p");
-    Title.innerText = movie.Title
+    Title.innerText = "Name - " + movie.Title
 
     let Director = document.createElement("p");
-    Director.innerText = movie.Director;
+    Director.innerText ="Director - " + movie.Director;
+    
+    let Year = document.createElement("p")
+    Year.innerText = "Year - " + movie.Year
 
-    container.append(Title,Director)
+    let Rated = document.createElement("p")
+    Rated.innerText = "Rated - " + movie.Rated
+
+    let Runtime = document.createElement("p")
+    Runtime.innerText = "Duration - " + movie.Runtime
+
+    let Released = document.createElement("p")
+    Released.innerText ="Released Date  - " + movie.Released
+
+    container.append(Title,Director,Year,Rated,Runtime,Released)
    }
    
 
