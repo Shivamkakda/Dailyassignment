@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="moviename" placeholder="Enter City Name"/>
+    <button onclick="getMovie()">Get movie</button>
+    <div id="data"></div>
+</body>
+<script>
+
+    let container = document.getElementById("data")
+
+   async function getMovie(){
+       let film = document.getElementById("moviename").value;
+
+    let res = await fetch(`http://www.omdbapi.com/?t=${film}&apikey=4acb4bb6`);
+
+    let data = await res.json();
+    console.log("data:", data)
+    showMovie(data)
+    
+   };
+
+   function showMovie(movie){
+       container.innerHTML = null;
+
+    let Title = document.createElement("p");
+    Title.innerText = movie.Title
+
+    let Director = document.createElement("p");
+    Director.innerText = movie.Director;
+
+    container.append(Title,Director)
+   }
+   
+
+</script>
+</html>
