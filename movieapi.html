@@ -73,8 +73,12 @@
 
     let data = await res.json();
     console.log(data)
-    showMovie(data)
-    
+    if(data.Title === undefined){
+        container.innerHTML = "No Match Found"
+        
+    }else{
+        showMovie(data)
+    }
    };
    
 
