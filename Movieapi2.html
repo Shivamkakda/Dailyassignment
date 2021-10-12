@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body{
+            background-color: rgb(177, 174, 171);
+        }
+       
+        #movies{
+            width: 300px;
+            height: 400px;
+            margin-left: 30%;
+            padding: 20px;
+            background-color: rgb(247, 236, 214);
+            border: 1px black;
+            overflow: scroll;
+            border-top: none;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        input{
+            display: flex;
+            flex-direction: row;
+            width: 340px;
+            height: 50px;
+
+            margin-left: 30%;
+            border: 1px solid black;
+            border-radius: 2%;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        h1{
+            margin-left: 30%;
+        }
+      
+    </style>
+</head>
+<body>
+    <h1>Movies Search Engine</h1>
+   <input oninput="debounce(main,3000)" type="text" id="movie" placeholder=" Enter movie name" >
+   <div id="movies"></div>
+</body>
+</html>
+<script>
+
+    //search movie
+
+    var timerid;
+
+    let movies_div = document.getElementById("movies")
+
+    async function searchmovie(movie_name){
+
+        try{
+        let res = await fetch(`http://www.omdbapi.com/?s=${movie_name}&apikey=4acb4bb6`)
+
+        let data = await res.json();
+        return data
+        }catch(e){
+            console.log("e:",e)
+        }
+    }
+    function appendMovies(movies){
+
+        if(movies === undefined){
+            return false
+        }
+        movies_div.innerHTML = null;
+
+        movies.forEach(function(movie){
+            let p = document.createElement("p")
+            p.innerText = movie.Title
+
+            movies_div.append(p)
+        })
+
+    }
+
+ async function main(){
+
+    let name = document.getElementById("movie").value;
+
+    //get Search movies
+    if(name.length <3){
+        return false
+    }
+
+  let res = await searchmovie(name);
+
+    let movies_data = res.Search;
+    appendMovies(movies_data)
+
+  console.log("res:", res)
+ }
+
+function debounce( func, delay){
+
+    if(timerid){
+    clearTimeout(timerid)
+    }
+
+    timerid = setTimeout(function(){
+        
+        func();
+
+    }, delay)
+}
+
+
+</script>
