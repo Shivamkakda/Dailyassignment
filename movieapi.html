@@ -87,9 +87,7 @@
     }else{
         showMovie(data)
     }
-    if(data.imdbRating > 8.5){
-        container.style.backgroundColor = "blue"
-    }
+   
    };
    
 
@@ -111,7 +109,6 @@
     Year.innerText = "Year - " + movie.Year
 
     let Rated = document.createElement("p")
-    Rated.innerText = "IMDB - " + movie.imdbRating
 
     let Runtime = document.createElement("p")
     Runtime.innerText = "Duration - " + movie.Runtime
@@ -119,7 +116,19 @@
     let Released = document.createElement("p")
     Released.innerText ="Released Date  - " + movie.Released
 
-    div.append(img,Title,Director,Year,Rated,Runtime,Released)
+    let Rat = +movie.imdbRating;
+    if(Rat > 8.5){
+
+        Rated.innerText = "Rating - " +movie.imdbRating + "    Recomended";
+        Rated.style.color ="black"
+        div.append(img,Title,Director,Year,Runtime,Released,Rated)
+    }
+    else{
+
+Rated.innerText = "Rating - " +movie.imdbRating ;
+div.append(img,Title,Director,Year,Runtime,Released,Rated)
+}
+
     container.append(div)
    }
    
