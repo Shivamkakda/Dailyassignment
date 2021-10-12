@@ -41,16 +41,24 @@
 
         }
         #Mdata{
-            font-size: 24px;
-            font-weight: bold;
-            text-align: left;
-            color: maroon;
             border: 2px black;
         }
         img{
+            padding: 2%;
             width: 60%;
             height: 200px;
-            margin-left: 15%;
+            margin-left: 7%;
+        }
+        .abs{
+            border: 1px black;
+            width:87% ;
+            background-color: rgb(153, 152, 150);
+            text-align: center;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-left: 5%;
         }
 
     </style>
@@ -74,16 +82,21 @@
     let data = await res.json();
     console.log(data)
     if(data.Title === undefined){
-        container.innerHTML = "No Match Found"
+        container.innerHTML = "<img src=\'https://media.istockphoto.com/photos/computer-error-picture-id1222806141?b=1&k=20&m=1222806141&s=170667a&w=0&h=dHv1hVrm4NaFd2ksafc4dH1masOIImL84HRHbzKrueM=' width=\'400px\' height=\'150px\'>";
         
     }else{
         showMovie(data)
+    }
+    if(data.imdbRating > 8.5){
+        container.style.backgroundColor = "blue"
     }
    };
    
 
    function showMovie(movie){
        container.innerHTML = null;
+       let div = document.createElement("div")
+       div.setAttribute("class", "abs")
 
        let img = document.createElement("img")
     img.src = movie.Poster
@@ -98,7 +111,7 @@
     Year.innerText = "Year - " + movie.Year
 
     let Rated = document.createElement("p")
-    Rated.innerText = "Rated - " + movie.Rated
+    Rated.innerText = "IMDB - " + movie.imdbRating
 
     let Runtime = document.createElement("p")
     Runtime.innerText = "Duration - " + movie.Runtime
@@ -106,7 +119,8 @@
     let Released = document.createElement("p")
     Released.innerText ="Released Date  - " + movie.Released
 
-    container.append(img,Title,Director,Year,Rated,Runtime,Released)
+    div.append(img,Title,Director,Year,Rated,Runtime,Released)
+    container.append(div)
    }
    
 
