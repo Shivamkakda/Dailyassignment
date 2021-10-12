@@ -45,11 +45,18 @@
             font-weight: bold;
             text-align: left;
             color: maroon;
+            border: 2px black;
+        }
+        img{
+            width: 60%;
+            height: 200px;
+            margin-left: 15%;
         }
 
     </style>
 </head>
 <body><div class="box">
+    <h1>Imdb Movies</h1>
     <input type="text" id="moviename" placeholder="Enter Movie Name"/>
     <button onclick="getMovie()">Get movie</button>
     <div id="Mdata"></div>
@@ -66,18 +73,16 @@
 
     let data = await res.json();
     console.log(data)
-    if(data.Title === undefined){
-        container.innerHTML = "No Match Found"
-        
-    }else{
-        showMovie(data)
-    }
+    showMovie(data)
     
    };
    
 
    function showMovie(movie){
        container.innerHTML = null;
+
+       let img = document.createElement("img")
+    img.src = movie.Poster
 
     let Title = document.createElement("p");
     Title.innerText = "Name - " + movie.Title
@@ -97,7 +102,7 @@
     let Released = document.createElement("p")
     Released.innerText ="Released Date  - " + movie.Released
 
-    container.append(Title,Director,Year,Rated,Runtime,Released)
+    container.append(img,Title,Director,Year,Rated,Runtime,Released)
    }
    
 
