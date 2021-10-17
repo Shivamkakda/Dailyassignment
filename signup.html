@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-   <link rel="stylesheet" href="movies.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="movies.css">
 </head>
 <body>
-    <!-- navBar -->
-    <nav>
+     <!-- navBar -->
+     <nav>
         <div id="logo" class="navDiv"><a href="Movies.html">BOX OFFICE</a></div>
         <div id="navMenu">
             <div class="navDiv" id="searchBox">
@@ -22,16 +22,25 @@
             <div class="navDiv dis" id="subs">SUBSCRIBE</div>
             <div class="navDiv dis" onclick="signIn()">Login</div>
             <div class="navDiv dis" onclick="signUp()">Signup</div>
-            <div class="navDiv dis" id="log">
-            </div>
         </div>
     </nav>
     <!-- main body -->
-    <div id="moviesList">
-
+    <div class="authentication">
+        <h1> Signup</h1>
+        <div id="Signup">
+            <form  onsubmit="Signup(event)" id="signup-form">
+                <input type="text" id="name" placeholder="Name" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required/>
+                <input type="text" id="username" placeholder="Username" required/>
+                <input type="number" id="mobile" placeholder="Mobile" required/>
+                <input type="text" id="description" placeholder="Description" required/>
+                <input type="submit" id="btn" value="Sign Up"/>
+            </form>
+      
+        </div>
     </div>
-    <div id="hrLine"></div>
- 
 </body>
 </html>
-<script src="movies.js"></script>
+<script src="movies.js">
+</script>

@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: rgb(177, 170, 170);
+}
+nav{
+    width: 100%;
+    display: flex;
+    height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(61, 58, 58);
+    position: fixed;
+    top: 0px;
+}
+#logo{
+    font-size: 28px;
+}
+#navMenu{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    cursor: pointer;
+}
+.navDiv{
+    cursor: pointer;
+    margin: auto 2% auto 2%;
+}
+#subs{
+    width: 120px;
+    border: none;
+    border-radius: 8%;
+    background-color: blue;
+    height: 20px;
+    text-align: center;
+}
+
+#searchBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    color: rgb(219, 210, 210);
+    width: 40%;
+    font-size: 18px;
+    font-weight: bold;
+} input{
+    /* border: 1px solid red; */
+    width: 350px;
+    height: 40px;
+    background-color: rgb(245, 241, 241);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    overflow-y: hidden;
+    color: black;
+    grid-area: a;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+/* Search result */
+#movies{
+    width: 100%;
+    height: 360px;
+    background-color: rgb(253, 253, 252);
+    overflow: scroll;
+    display: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(105, 101, 101);
+    cursor: default;
+  }
+  #movies::-webkit-scrollbar {
+    display: none;
+  }
+
+#hrLine{
+    border-top: 3px solid grey;
+    width: 100%;
+}
+#moviesList{
+    display: grid;
+    grid-template-columns: repeat(3, 28%); 
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 22px;
+    padding-bottom: 22px;
+    padding: 0px 38px;
+    justify-content: space-around;
+}
+#moviesList img{
+    width: 100%;
+    height: 330px;
+    border-radius: 8px;
+}
+.moviBox{
+    margin-top: 100px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgb(119, 110, 110);
+    cursor: pointer;
+    height: 470px;
+}
+.moviName{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+.box{
+    display: grid;
+    grid-template-columns: 30% 55%;
+}
+.phot{
+    width: 100%;
+    height: 150px;
+    padding: 5px;
+}
+.srch{
+    font-size: 20px;
+    font-weight: bold;
+}
+.des{
+    margin-top: 100px;
+    font-size: 18px;
+    color: ghostwhite;
+    font-weight: bold;
+    padding-top: 10px;
+}
+/*  login signup
+*/
+form{
+    width: 60%;
+    margin-left: 15%;
+    padding: 5%;
+}
+#btn{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(101, 114, 173);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 20%;
+}
+.authentication{
+    width: 40%;
+    height: 550px;
+    margin-left: 30%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(119, 110, 110);
+    margin-top: 100px;
+  
+}
