@@ -243,89 +243,6 @@ input{
     gap: 8px;
 }
 
-/* ----------------------------------------------------------- */
-
-@media (max-width: 540px) {
-    #mainContainer{
-        grid-template-columns: repeat(1, 80%);
-        justify-content: space-evenly;
-    }
-    #sugestions{
-        overflow-x: scroll;
-    }
-    #sugestions::-webkit-scrollbar {
-        display: none;
-    }
-    #videosBox{
-        /* max-width: 70%; */
-        margin-left: 16%;
-    }
-    #navMiddlePart input{
-        display: none;
-    }
-    #navMiddlePart{
-        width: 18%;
-        align-items: flex-end;
-    }
-    #navMiddlePart button{
-        width: 70%;
-    }
-    #navLeftPart{
-        width: 30%;
-    }
-    #navRightPart{
-        width: 35%;
-    }
-}
-@media (min-width: 541px) and (max-width: 860px) {
-    #mainContainer{
-        grid-template-columns: repeat(2, 45%);
-        justify-content: space-evenly;
-    }
-    #sugestions{
-        overflow-x: scroll;
-    }
-    #sugestions::-webkit-scrollbar {
-        display: none;
-    }
-    #videosBox{
-        max-width: 90%;
-        margin-left: 12%;
-    }
-    #navMiddlePart input{
-        display: none;
-    }
-    #navMiddlePart{
-        width: 18%;
-        align-items: flex-end;
-    }
-    #navMiddlePart button{
-        width: 70%;
-    }
-    #navLeftPart{
-        width: 30%;
-    }
-    #navRightPart{
-        width: 35%;
-    }
-}
-@media (min-width: 861px) and (max-width: 1100px){
-    #mainContainer{
-        grid-template-columns: repeat(3, 30%);
-        justify-content: space-evenly;
-    }
-
-    #sugestions{
-        overflow-x: scroll;
-    }
-    #sugestions::-webkit-scrollbar {
-        display: none;
-    }
-    #videosBox{
-        margin-left: 8%;
-    }
-}
-
     </style>
 </head>
 <body>
@@ -374,6 +291,18 @@ input{
             <span>
                 <img style="width: 25px;" src="https://img.icons8.com/ios/50/000000/video-playlist.png"/>
                 <p style="font-size: 12px;">Subscriptions</p>
+            </span>
+            <span>
+                <img style="width: 25px;" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/2x/external-history-instagram-flatart-icons-outline-flatarticons.png"/>
+                <p style="font-size: 12px;">History</p>
+            </span>
+            <span>
+                <img style="width: 25px;" src="https://img.icons8.com/ios/72/facebook-like.png"/>
+                <p style="font-size: 12px;">Liked Videos</p>
+            </span>
+            <span>
+                <img style="width: 25px;" src="https://image.shutterstock.com/image-vector/icon-watch-later-260nw-710534860.jpg"/>
+                <p style="font-size: 12px;">Watch Later</p>
             </span>
             <span>
                 <img style="width: 25px;" src="https://img.icons8.com/material-outlined/50/000000/video-gallery.png"/>
