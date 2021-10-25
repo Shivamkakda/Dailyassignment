@@ -33,10 +33,7 @@ async function moviesDataAPI(){
     let res = await fetch("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=6e21d40af18a934f0f7f9a3c5452f5a4");
     let apiData = await res.json();
     showMoviesList(apiData.results);
-    slid_show(apiData.results);
     moviesData = apiData.results;
-    console.log(apiData.results);
-    // Video API
 }
 
 moviesDataAPI();
@@ -136,14 +133,14 @@ let movies_div = document.getElementById("movies");
               div2.append(photo)
               div.append(div1,div2)
               div.onclick = function(){
-                showMovieDet(element);
+                showMovieDatas(element);
               }
               movies_div.append(div);
           });
       }
 
     //   After search result 
-      function showMovieDet(moviee){
+      function showMovieDatas(moviee){
 
         videoApiID(moviee);
         async function videoApiID(moviee){
@@ -231,6 +228,25 @@ let movies_div = document.getElementById("movies");
         e.preventDefault()
 
         let form = document.getElementById("signup-form")
+        let sigData = document.getElementById("signup-form");
+
+        let name = sigData.name.value;
+        let email = sigData.email.value;
+        let password = sigData.password.value;
+        if (localStorage.getItem('user')=== null){
+        localStorage.setItem("user", JSON.stringify([]));
+        }
+        let user ={
+            name:name,
+            email: email,
+            password:password,
+        };
+            let users = JSON.parse(localStorage.getItem("user"))
+        
+            users.push(user);
+        
+            localStorage.setItem("user", JSON.stringify(users))
+
 
         let user_data ={
             name: form.name.value,
@@ -262,7 +278,9 @@ let movies_div = document.getElementById("movies");
             })
             .then((res) =>{
                 console.log("res:", res);
+                alert(res.message)
                 location.href = "login.html"
+                
             })
             .catch((err) => {
                 console.log("err:",err)
@@ -310,6 +328,7 @@ let movies_div = document.getElementById("movies");
             })
             .catch((err) => {
                 console.log("err:",err)
+                alert("Username or Password is not match")
             })
 
 
@@ -329,10 +348,11 @@ let movies_div = document.getElementById("movies");
             .then((res) =>{
                 console.log("res:", res);
                 location.href ="Movies.html"
-               acc.innerHTML = res.username
+
             })
             .catch((err) => {
                 console.log("err:",err)
+                
             })
 
     }
